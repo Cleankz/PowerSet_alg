@@ -30,8 +30,7 @@ class MyTests(unittest.TestCase):
             s.put(random.randint(1,20000))
         set = []
         s.union(set)
-        sz = s.size()
-        self.assertTrue( sz == 200 )
+        self.assertTrue( s.size() <= 200 )
         for j in range(10):
             set.append(random.randint(1,20000))
         s.union(set)
@@ -54,9 +53,6 @@ class MyTests(unittest.TestCase):
         for j in range(20):
             set.append(j)
         self.assertTrue(s.issubset(set))
-
-
-    ...
 
 if __name__ == '__main__':
     unittest.main()
