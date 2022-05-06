@@ -17,13 +17,19 @@ class MyTests(unittest.TestCase):
         for i in range(1000):
             s.remove(random.randint(1,20000))
         self.assertTrue(s.size() < size)
-    def test_intersection(self):
+    def test_Intersection(self):
         s = PowerSet()
-        for i in range(200):
-            s.put(random.randint(1,20000))
         set = []
-        set_result = s.intersection(set)
+        set_result = s.Intersection(set)
         self.assertEqual([],set_result)
+        for i in range(200):
+            s.put(i)
+        set_result = s.Intersection(set)
+        self.assertEqual([],set_result)
+        for i in range(20):
+            set.append(i)
+        set_result = s.Intersection(set)
+        self.assertNotEqual([],set_result)
     def test_union(self):
         s = PowerSet()
         for i in range(200):
