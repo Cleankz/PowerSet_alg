@@ -34,17 +34,17 @@ class PowerSet:
 
     def intersection(self, set2):
         result_set = []
-        for i in range(len(set2)):
-            if set2[i] in self.array:
-                result_set.append(set2[i])
+        for i in (set2):
+            if i in self.array:
+                result_set.append(i)
         # пересечение текущего множества и set2
         return result_set
 
     def union(self, set2):
         #result_set = self.array
-        for i in range(len(set2)):
-            if set2[i] not in self.array:
-                self.array.append(set2[i])
+        for i in (set2):
+            if i not in self.array:
+                self.array.append(i)
         return self.array
 
     def difference(self, set2):
@@ -56,8 +56,8 @@ class PowerSet:
         return result_set
 
     def issubset(self, set2):
-        for i in range(len(set2)):
-            if set2[i] not in self.array:
+        for i in (set2):
+            if i not in self.array:
                 return False
         return True
         # возвращает True, если set2 есть
