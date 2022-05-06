@@ -22,7 +22,6 @@ class PowerSet:
             return False
         # возвращает True если value имеется в множестве,
         # иначе False
-        return False
 
     def remove(self, value):
         if value in self.array:
