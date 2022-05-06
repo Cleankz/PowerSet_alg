@@ -32,7 +32,7 @@ class PowerSet:
         # возвращает True если value удалено
         # иначе False
 
-    def Intersection(self, set2):
+    def intersection(self, set2):
         result_set = []
         for i in range(len(set2)):
             if set2[i] in self.array:
