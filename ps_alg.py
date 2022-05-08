@@ -63,3 +63,14 @@ class PowerSet:
         # возвращает True, если set2 есть
         # подмножество текущего множества,
         # иначе False
+a = set()
+a.add(1025)
+a.add("512")
+a.add(3.15)
+s = PowerSet()
+s.put(1025)
+s.put("512")
+s.put(3.14)
+b = s.intersection(a)
+print(b)
+#использовать словарь
