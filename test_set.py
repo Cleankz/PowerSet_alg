@@ -20,7 +20,7 @@ class MyTests(unittest.TestCase):
 
     def test_intersection(self):
         s = PowerSet()
-        set = []
+        set = PowerSet()
         set_result = s.intersection(set)
         self.assertEqual([],set_result)
         for i in range(200):
@@ -30,7 +30,7 @@ class MyTests(unittest.TestCase):
         self.assertEqual([],set_result)
 
         for i in range(20):
-            set.append(i)
+            set.put(i)
         set_result = s.intersection(set)
         self.assertNotEqual([],set_result)
 
@@ -38,11 +38,11 @@ class MyTests(unittest.TestCase):
         s = PowerSet()
         for i in range(200):
             s.put(random.randint(1,20000))
-        set = []
+        set = PowerSet()
         s.union(set)
         self.assertTrue( s.size() <= 200 )
         for j in range(10):
-            set.append(random.randint(1,20000))
+            set.put(random.randint(1,20000))
         s.union(set)
         sz = s.size()
         self.assertTrue( sz > 200 )
@@ -51,11 +51,13 @@ class MyTests(unittest.TestCase):
         s = PowerSet()
         for i in range(20000):
             s.put(random.randint(1,20000))
-        set = []
-        self.assertTrue(len(s.difference(set)) == s.size())
+        set = PowerSet()
+        s.difference(set)
+        self.assertTrue(set.size() < s.size())
         for j in range(20000):
-            set.append(random.randint(1,20000))
-        self.assertTrue(len(s.difference(set)) <= s.size())
+            set.put(random.randint(1,20000))
+        dif = s.difference(set)
+        self.assertTrue (dif.size() <= s.size())
 
     def test_issubset(self):
         s = PowerSet()
