@@ -37,7 +37,7 @@ class PowerSet:
         result_set = []
         for i in range(len(self.array)):
             if self.array[i] in set2.array:
-                result_set.put(self.array[i])
+                result_set.append(self.array[i])
         # пересечение текущего множества и set2 (self.array[i])
         return result_set
 
