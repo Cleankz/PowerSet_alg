@@ -48,10 +48,10 @@ class PowerSet:
         return self.array
 
     def difference(self, set2):
-        result_set = []
+        result_set = PowerSet()
         for i in range(len(self.array)):
             if self.array[i] not in set2.array:
-                result_set.append(self.array[i])
+                result_set.put(self.array[i])
         # разница текущего множества и set2
         return result_set
 
