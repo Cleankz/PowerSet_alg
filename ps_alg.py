@@ -32,7 +32,7 @@ class PowerSet:
         # иначе False
 
     def intersection(self, set2):
-        if isinstance(set2, list, dict, set):
+        if isinstance(set2, (list, dict, set)):
             result_set = PowerSet()
             for i in range(len(self.array)):
                 if self.array[i] in set2:
@@ -47,7 +47,7 @@ class PowerSet:
         return result_set
 
     def union(self, set2):
-        if isinstance(set2, list, dict, set):
+        if isinstance(set2, (list, dict, set)):
             result_set = PowerSet()
             result_set.array = self.array
             for i in set2:
@@ -61,7 +61,7 @@ class PowerSet:
         return result_set
 
     def difference(self, set2):
-        if isinstance(set2, list, dict, set):
+        if isinstance(set2, (list, dict, set)):
             result_set = PowerSet()
             for i in self.array:
                 if i not in set2:
@@ -75,7 +75,7 @@ class PowerSet:
         return result_set
 
     def issubset(self, set2):
-        if isinstance(set2, list, dict, set):
+        if isinstance(set2, (list, dict, set)):
             if len(set2) <= 0:
                 return False
             for i in set2:
