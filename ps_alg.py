@@ -1,8 +1,6 @@
 # наследуйте этот класс от HashTable
 # или расширьте его методами из HashTable
 import random
-
-from regex import P
 class PowerSet:
 
     def __init__(self):
@@ -101,16 +99,3 @@ class PowerSet:
             if i not in self.array:
                 return False
         return True
-        # возвращает True, если set2 есть
-        # подмножество текущего множества,
-        # иначе False
-# a = PowerSet()
-# # b = [1235,46551651,51,51,6156,21,54,2,12231,5,12,5,42,6442,26,412,4,78,96,24,67,23,25,96,84,15,19]
-# b = {}
-# # b = PowerSet()
-# for i in range(51,100):
-#     a.put(i)
-# # for i in range(50):
-# #     b.put(random.randint(0,50))
-# result = a.union(b)
-# print(result.size())
