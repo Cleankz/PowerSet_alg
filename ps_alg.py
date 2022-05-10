@@ -1,6 +1,4 @@
-# наследуйте этот класс от HashTable
-# или расширьте его методами из HashTable
-import random
+
 class PowerSet:
 
     def __init__(self):
@@ -34,10 +32,7 @@ class PowerSet:
         # иначе False
 
     def intersection(self, set2):
-        t1 = type({123,156})
-        t2 = type([1,2,3])
-        t3 = type({})
-        if type(set2) is t1 or type(set2) is t2 or type(set2) is t3:
+        if isinstance(set2, list, dict, set):
             result_set = PowerSet()
             for i in range(len(self.array)):
                 if self.array[i] in set2:
@@ -52,10 +47,7 @@ class PowerSet:
         return result_set
 
     def union(self, set2):
-        t1 = type({123,156})
-        t2 = type([1,2,3])
-        t3 = type({})
-        if type(set2) is t1 or type(set2) is t2 or type(set2) is t3:
+        if isinstance(set2, list, dict, set):
             result_set = PowerSet()
             result_set.array = self.array
             for i in set2:
@@ -69,10 +61,7 @@ class PowerSet:
         return result_set
 
     def difference(self, set2):
-        t1 = type({123,156})
-        t2 = type([1,2,3])
-        t3 = type({})
-        if type(set2) is t1 or type(set2) is t2 or type(set2) is t3:
+        if isinstance(set2, list, dict, set):
             result_set = PowerSet()
             for i in self.array:
                 if i not in set2:
@@ -86,14 +75,15 @@ class PowerSet:
         return result_set
 
     def issubset(self, set2):
-        t1 = type({123,156})
-        t2 = type([1,2,3])
-        t3 = type({})
-        if type(set2) is t1 or type(set2) is t2 or type(set2) is t3:
+        if isinstance(set2, list, dict, set):
+            if len(set2) <= 0:
+                return False
             for i in set2:
                 if i not in self.array:
                     return False
             return True
+        if len(set2.array) <= 0:
+            return False
 
         for i in (set2.array):
             if i not in self.array:
