@@ -14,7 +14,7 @@ class MyTests(unittest.TestCase):
         for i in range(20000):
             s.put(random.randint(1,20000))
         size = s.size()
-        for i in range(1000):
+        for i in range(20000):
             s.remove(random.randint(1,20000))
         self.assertTrue(s.size() < size)
 
@@ -22,24 +22,24 @@ class MyTests(unittest.TestCase):
         s = PowerSet()
         sets = PowerSet()
         set_result = s.intersection(sets)
-        for i in range(200):
+        for i in range(20000):
             s.put(i)
 
         set_result = s.intersection(sets)
 
-        for i in range(20):
+        for i in range(20000):
             sets.put(i)
         set_result = s.intersection(sets)
         self.assertNotEqual([],set_result)
 
     def test_union(self):
         s = PowerSet()
-        for i in range(200):
+        for i in range(10000):
             s.put(random.randint(1,20000))
         sets = PowerSet()
         s.union(sets)
-        self.assertTrue( s.size() <= 200 )
-        for j in range(10):
+        self.assertTrue( s.size() <= 20000 )
+        for j in range(10000):
             sets.put(random.randint(1,20000))
         s.union(sets)
         sz = s.size()
