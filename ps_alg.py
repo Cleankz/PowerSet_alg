@@ -76,6 +76,7 @@ class PowerSet:
 # a = PowerSet()
 # b = [1235,46551651,51,51,6156,21,54,2,12231,5,12,5,42,6442,26,412,4,78,96,24,67,23,25,96,84,15,19]
 # b = {}
+# b = PowerSet()
 # for i in range(50):
 #     a.put(random.randint(0,50))
 # for i in range(50):
