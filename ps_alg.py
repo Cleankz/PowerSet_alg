@@ -34,10 +34,20 @@ class PowerSet:
         # иначе False
 
     def intersection(self, set2):
-        result_set = []
+        t1 = type({123,156})
+        t2 = type([1,2,3])
+        t3 = type({})
+        if type(set2) is t1 or type(set2) is t2 or type(set2) is t3:
+            result_set = PowerSet()
+            for i in range(len(self.array)):
+                if self.array[i] in set2:
+                    result_set.put(self.array[i])
+            return result_set
+
+        result_set = PowerSet()
         for i in range(len(self.array)):
             if self.array[i] in set2.array:
-                result_set.append(self.array[i])
+                result_set.put(self.array[i])
         # пересечение текущего множества и set2 (self.array[i])
         return result_set
 
@@ -63,3 +73,11 @@ class PowerSet:
         # возвращает True, если set2 есть
         # подмножество текущего множества,
         # иначе False
+# a = PowerSet()
+# b = [1235,46551651,51,51,6156,21,54,2,12231,5,12,5,42,6442,26,412,4,78,96,24,67,23,25,96,84,15,19]
+# b = {}
+# for i in range(50):
+#     a.put(random.randint(0,50))
+# for i in range(50):
+#     b.put(random.randint(0,50))
+# print(a.intersection(b))
