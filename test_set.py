@@ -1,6 +1,8 @@
 import unittest
 from ps_alg import PowerSet
 import random
+
+
 class MyTests(unittest.TestCase):
 
     def test_put(self):
@@ -38,12 +40,12 @@ class MyTests(unittest.TestCase):
             s.put(random.randint(1,20000))
         sets = PowerSet()
         s.union(sets)
-        self.assertTrue( s.size() <= 20000 )
+        self.assertTrue(s.size() <= 20000)
         for j in range(10000):
             sets.put(random.randint(1,20000))
         s.union(sets)
         sz = s.size()
-        self.assertTrue( sz > 200 )
+        self.assertTrue(sz > 200)
 
     def test_difference(self):
         s = PowerSet()
@@ -55,7 +57,7 @@ class MyTests(unittest.TestCase):
         for j in range(20000):
             sets.put(random.randint(1,20000))
         dif = s.difference(sets)
-        self.assertTrue (dif.size() <= s.size())
+        self.assertTrue(dif.size() <= s.size())
 
     def test_issubset(self):
         s = PowerSet()
@@ -65,6 +67,7 @@ class MyTests(unittest.TestCase):
         for j in range(20):
             sets.put(j)
         self.assertTrue(s.issubset(sets))
+
 
 if __name__ == '__main__':
     unittest.main()
