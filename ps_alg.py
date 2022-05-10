@@ -50,21 +50,19 @@ class PowerSet:
         if isinstance(set2, (list, dict, set)):
             result_set = PowerSet()
             result_set.array = self.array
-            if len(set2) == 0 and len(self.array) == 0:
-                r_set = PowerSet()
-                return r_set
             if len(set2) == 0:
-                return result_set
+                return self
+            if len(self.array) == 0:
+                return set2
             for i in set2:
                 result_set.put(i)
             return result_set
-        if len(set2.array) == 0 and len(self.array) == 0:
-            r_set = PowerSet()
-            return r_set
         result_set = PowerSet()
         result_set.array = self.array
         if len(set2.array) == 0:
-            return result_set
+            return self
+        if len(self.array) == 0:
+            return set2
         for i in set2.array:
             result_set.put(i)
         return result_set
