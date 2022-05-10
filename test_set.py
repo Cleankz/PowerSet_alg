@@ -20,30 +20,28 @@ class MyTests(unittest.TestCase):
 
     def test_intersection(self):
         s = PowerSet()
-        set = PowerSet()
-        set_result = s.intersection(set)
-        self.assertEqual([],set_result)
+        sets = PowerSet()
+        set_result = s.intersection(sets)
         for i in range(200):
             s.put(i)
 
-        set_result = s.intersection(set)
-        self.assertEqual([],set_result)
+        set_result = s.intersection(sets)
 
         for i in range(20):
-            set.put(i)
-        set_result = s.intersection(set)
+            sets.put(i)
+        set_result = s.intersection(sets)
         self.assertNotEqual([],set_result)
 
     def test_union(self):
         s = PowerSet()
         for i in range(200):
             s.put(random.randint(1,20000))
-        set = PowerSet()
-        s.union(set)
+        sets = PowerSet()
+        s.union(sets)
         self.assertTrue( s.size() <= 200 )
         for j in range(10):
-            set.put(random.randint(1,20000))
-        s.union(set)
+            sets.put(random.randint(1,20000))
+        s.union(sets)
         sz = s.size()
         self.assertTrue( sz > 200 )
 
@@ -51,23 +49,22 @@ class MyTests(unittest.TestCase):
         s = PowerSet()
         for i in range(20000):
             s.put(random.randint(1,20000))
-        set = PowerSet()
-        s.difference(set)
-        self.assertTrue(set.size() < s.size())
+        sets = PowerSet()
+        s.difference(sets)
+        self.assertTrue(sets.size() < s.size())
         for j in range(20000):
-            set.put(random.randint(1,20000))
-        dif = s.difference(set)
+            sets.put(random.randint(1,20000))
+        dif = s.difference(sets)
         self.assertTrue (dif.size() <= s.size())
 
     def test_issubset(self):
         s = PowerSet()
-        set = []
+        sets = PowerSet()
         for i in range(20):
             s.put(i)
         for j in range(20):
-            set.append(j)
-        self.assertTrue(s.issubset(set))
+            sets.put(j)
+        self.assertTrue(s.issubset(sets))
 
 if __name__ == '__main__':
     unittest.main()
-    
