@@ -36,16 +36,17 @@ class MyTests(unittest.TestCase):
 
     def test_union(self):
         s = PowerSet()
+        sets = PowerSet()
+        self.assertEqual(s.size(), s.union(sets).size()) # проверяем что при объединении пустых множеств, размер не изменился
         for i in range(10000):
             s.put(random.randint(1,20000))
-        sets = PowerSet()
-        s.union(sets)
-        self.assertTrue(s.size() <= 20000)
+
+        self.assertEqual(s.size(), s.union(sets).size())# проверяем что при объединении пустого и не пустого множества, размер не изменился
         for j in range(10000):
-            sets.put(random.randint(1,20000))
-        s.union(sets)
-        sz = s.size()
-        self.assertTrue(sz > 200)
+            sets.put(random.randint(20000, 30000))
+        self.assertTrue(s.size() < s.union(sets).size())# проверяем что произошло объединение
+        self.assertTrue(s.union(sets).size() <= 18000)# проверяем что произошло объединение
+        
 
     def test_difference(self):
         s = PowerSet()
