@@ -1,7 +1,4 @@
 
-from unittest import result
-
-
 class PowerSet:
 
     def __init__(self):
