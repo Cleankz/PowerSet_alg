@@ -42,7 +42,7 @@ class MyTests(unittest.TestCase):
             s.put(random.randint(1,20000))
 
         self.assertEqual(s.size(), s.union(sets).size())# проверяем что при объединении пустого и не пустого множества, размер не изменился
-        self.assertEqual(s, s.union(sets)) # проверяем что при объединении возврщается то же самое множество
+        self.assertNotEqual(s, s.union(sets)) # проверяем что при объединении возврщается то же самое множество
         for j in range(10000):
             sets.put(random.randint(20000, 30000))
         self.assertTrue(s.size() < s.union(sets).size())# проверяем что произошло объединение
